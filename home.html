@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="sidenav.css">
+    
+    <title>Pizza Online</title>
+    <script>
+        function loadPage(url) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("main").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <div class="sidenav">
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="menu.html">Fazer Pedido</a>
+    </div>
+
+    <div id="main">
+        <h2>Welcome</h2>
+        <p>To our online pizzaria website.</p>
+    </div>
+
+</body>
+</html>

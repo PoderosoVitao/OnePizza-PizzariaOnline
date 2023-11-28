@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="sidenav.css">
+    
+    <title>Pizza Online</title>
+    <script>
+        function loadPage(url) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("main").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <div class="sidenav">
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="menu.html">Fazer Pedido</a>
+    </div>
+
+    <div id="main">
+        <h2>Fazer Pedido</h2>
+        <p>Cê quer carne? Come eu. Come a cabeça do dinossauro...</p>
+        <div class="container">
+            <select id="pizzaSelect">
+              <option value="pepperoni">Pepperoni</option>
+              <option value="margherita">Margherita</option>
+            </select>
+            <select id="sizeSelect">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+              </select>
+            <button onclick="addPizza()">Add Pizza</button>
+            <ul id="pizzaList"></ul>
+         </div>
+         <div class="container">
+            <select id="drinkSelect">
+              <option value="fanta-Latao">Fanta Uva</option>
+              <option value="tonic-water">Agua com gosto de cu</option>
+              <option value="ethanol">Alcool 99.9% puro</option>
+              <option value="diabetes">Coca-Cola</option>
+            </select>
+            <button onclick="addBebida()">Add Pizza</button>
+            <ul id="drinkList"></ul>
+         </div>
+
+
+            <button onclick="youNeedToGoBack()">Finalizar Pedido</button>
+    </div>
+
+     <script>
+        function addPizza() {
+          const select = document.getElementById('pizzaSelect');
+          const select2 = document.getElementById('sizeSelect');
+          const list = document.getElementById('pizzaList');
+          const selectedPizza = select.options[select.selectedIndex].text;
+          const selectedSize = select2.options[select2.selectedIndex].text;
+          
+          const listItem = document.createElement('li');
+          listItem.textContent = selectedPizza + " " + selectedSize;
+          list.appendChild(listItem);
+        }
+     </script>
+
+    <script>
+        function addBebida() {
+        const select = document.getElementById('drinkSelect');
+        const list = document.getElementById('drinkList');
+        const selectedDrink = select.options[select.selectedIndex].text;
+        
+        const listItem = document.createElement('li');
+        listItem.textContent = selectedDrink;
+        list.appendChild(listItem);
+        }
+    </script>
+
+<script>
+    function youNeedToGoBack() {
+        window.location.href = "home.html"
+    }
+</script>
+
+
+</body>
+</html>

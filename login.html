@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="sidenav.css">
+    <title>Login/Register</title>
+    <script>
+        function login() {
+            // TODO: Criar função login e autenticar o úsuario.
+        }
+
+        function register() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username && password) {
+                var user = { username: username, password: password };
+                localStorage.setItem("user", JSON.stringify(user));
+                alert("User registered successfully.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="sidenav">
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="menu.html">Menu</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="container">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" id="username" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+        <button type="button" onclick="login()">Login</button>
+        <button type="button" onclick="register()">Register</button>
+    </div>
+</body>
+</html>
